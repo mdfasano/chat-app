@@ -9,10 +9,8 @@ const userSchema = new Schema({
         required: true
     },
     email: String,
-    avatar: String
-    // profile
-    // comments
-    //
+    avatar: String,
+    profile: Schema.Types.ObjectId// profile
     }, {
     timestamps: true
 });
