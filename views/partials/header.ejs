@@ -10,8 +10,9 @@
     <nav>
         <a href="/user/profile">My Profile</a>
         <a href="/user/profile/new">New Post</a>
-        <a href="/auth/google">Log In</a>
-        <a href="/logout">Log Out</a>
+        <% if (user) { %>
+            <a href="/auth/google">Log In</a>
+            <a href="/logout">Log Out</a>
     </nav>
 </body>
 </html>
