@@ -21,7 +21,6 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -34,6 +33,11 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(function (req, res, next) {
+  console.log(req.user)
+  res.locals.user = req.user;
+  next();
+});
 
 // if logged in, res.locals.user = user
 // else res.locals.user is undefined

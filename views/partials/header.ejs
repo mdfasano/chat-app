@@ -8,11 +8,17 @@
 </head>
 <body>
     <nav>
-        <a href="/user/profile">My Profile</a>
-        <a href="/user/profile/new">New Post</a>
+        <a href="/users/profile">My Profile</a>
+        &nbsp;|&nbsp;
+        <a href="/users/test">user test</a>
+        &nbsp;|&nbsp;
+        <a href="/users/profile/new">New Post</a>
+        &nbsp;|&nbsp;
         <% if (user) { %>
-            <a href="/auth/google">Log In</a>
             <a href="/logout">Log Out</a>
+        <% } else { %>
+            <a href="/auth/google">Log In</a>
+            <% } %>
     </nav>
 </body>
 </html>
