@@ -5,5 +5,5 @@ mongoose.connect(process.env.DATABASE_URL);
 const db = mongoose.connection;
 
 db.on('connected', function () {
-    console.log(db.name);
+    console.log('connected to', db.name);
 });
