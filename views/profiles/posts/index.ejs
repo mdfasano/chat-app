@@ -3,18 +3,17 @@
 <% posts.forEach(function(post) { %>
 
     <div class="post">
-        <div class="text">
+        <div class="text"><%= post.content %></div>
+        <div class="form-group">
             <form action="/profiles/<%= post._id %>/delete?_method=DELETE"
                 class="delete-form" method="POST">
                 <button type="submit">X</button>
             </form>
-            <%= post.content %>
             <form action="/profiles/<%= post._id %>/edit"
                 class="edit-form" method="GET">
                 <button type="submit">edit</button>
             </form>
         </div>
-        <br>
     </div>
     <br><br>
 

@@ -6,7 +6,7 @@
 <form id="edit-post" action="/profiles/<%= post._id %>?_method=PATCH"
     class="edit-form" method="POST">
     <label>edit your post here</label>
-    <input type="text" name="content" value="<%= post.content %>">
+    <textarea rows=3 type="text" name="content"><%= post.content %></textarea>
     <input type="submit" value="submit">
 </form>
 
