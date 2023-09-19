@@ -1,0 +1,14 @@
+<%- include('../../../partials/header') %>
+
+<h2><div><%= postContent %></div></h2>
+
+<% comments.forEach(function(comment) { %>
+
+    <div class="post">
+        <div class="text"><%= comment.content %></div>
+    </div>
+    <br><br>
+
+    <% }); %>
+
+<%- include('../../../partials/footer') %>

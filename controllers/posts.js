@@ -7,7 +7,6 @@ function newPost (req, res) {
 }
 
 async function index (req, res) {
-    console.log(res.locals.profile)
     const posts = res.locals.profile.posts;
     res.render('profiles/posts/index', {
         title: 'all posts',

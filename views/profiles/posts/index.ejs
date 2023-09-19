@@ -5,14 +5,24 @@
     <div class="post">
         <div class="text"><%= post.content %></div>
         <div class="form-group">
+            <form class="comment-form" action="/profiles/<%= post._id %>/comments/create" method="POST">
+                <input type="submit" value="comment">
+                <textarea type="text" name="content"></textarea>
+            </form>
+            &nbsp; | &nbsp;
             <form action="/profiles/<%= post._id %>/delete?_method=DELETE"
                 class="delete-form" method="POST">
                 <button type="submit">delete</button>
             </form>
+            &nbsp; | &nbsp;
             <form action="/profiles/<%= post._id %>/edit"
                 class="edit-form" method="GET">
                 <button type="submit">edit</button>
             </form>
+            &nbsp; | &nbsp;
+            <form action="/profiles/<%= post._id %>/comments/index"
+                class="index-form" method="GET">
+                <button type="submit">Show Comments</button>       
         </div>
     </div>
     <br><br>
