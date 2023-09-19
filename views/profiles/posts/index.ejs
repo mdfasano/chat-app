@@ -8,13 +8,13 @@
                 class="delete-form" method="POST">
                 <button type="submit">X</button>
             </form> &nbsp;
+            <form action="/profiles/<%= post._id %>/edit"
+                class="edit-form" method="GET">
+                <button type="submit">e</button>
+            </form> &nbsp;
             <%= post.content %>
         </div>
         <br>
-        <form class="comment-form" action="/profiles/<%= post._id %>/comments/create" method="POST">
-            <input type="text" name="content">
-            <input type="submit" value="comment">
-        </form>
     </div>
     <br><br>
 

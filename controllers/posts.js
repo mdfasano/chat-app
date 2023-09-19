@@ -42,9 +42,37 @@ async function deletePost (req, res) {
     res.redirect('/profiles/posts/index');
 }
 
+function edit (req, res) {
+    const thisProfile = res.locals.profile; 
+    if (req.user._id.equals(thisProfile.ownerId)) {
+        thisPost = thisProfile.posts.id(req.params.id);
+        
+        res.render('profiles/posts/edit', {
+            post: thisPost,
+            title: "editing"
+        });
+    }
+}
+
+async function patch (req, res) {
+    const thisProfile = res.locals.profile;
+    if (req.user._id.equals(thisProfile.ownerId)) {
+        thisProfile.posts.remove(req.params.id);
+        thisProfile.posts.push(req.body);
+        try {
+            await thisProfile.save();
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    res.redirect('/profiles/posts/index');
+}
+
 module.exports = {
     new: newPost,
     create,
     index,
-    delete: deletePost
+    delete: deletePost,
+    edit,
+    patch
 }

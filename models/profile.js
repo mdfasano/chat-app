@@ -7,14 +7,12 @@ const Schema = mongoose.Schema;
 
 // schema for comments made on a post
 const commentSchema = new Schema({
-    // related user
     content: String     // text contents
     }, {
     timestamps: true
 });
 
 const postSchema = new Schema({
-    // related user
     content: String,     // text contents
     comments: [commentSchema]   // array of comments
     }, {
