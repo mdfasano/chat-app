@@ -1,5 +1,5 @@
 # ChatterBox
-### A new app for keeping up to date with your friends
+### A multipurpose app for personal use tracking and recording whatever you desire
 
 ### [Online Deployment](https://chatterbox-sgw3.onrender.com)
 
@@ -10,6 +10,7 @@
 -Embedded Javascript
 -Mongoose
 -Express
+-OAuth
 
 ## Demo Images
 
@@ -21,6 +22,7 @@
 ![ERD](https://i.imgur.com/Gt12Uph.png)
 
 ## Future Enhancements
+- Add the ability for users to interact with each others profiles
 - Add the ability for users to comment on each other's posts
 - Add a landing page that shows links to all users profiles
 - Update graphics of the app to feel crisp and clean
