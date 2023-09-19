@@ -7,12 +7,12 @@
             <form action="/profiles/<%= post._id %>/delete?_method=DELETE"
                 class="delete-form" method="POST">
                 <button type="submit">X</button>
-            </form> &nbsp;
+            </form>
+            <%= post.content %>
             <form action="/profiles/<%= post._id %>/edit"
                 class="edit-form" method="GET">
-                <button type="submit">e</button>
-            </form> &nbsp;
-            <%= post.content %>
+                <button type="submit">edit</button>
+            </form>
         </div>
         <br>
     </div>
