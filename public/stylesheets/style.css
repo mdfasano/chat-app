@@ -7,25 +7,51 @@ body {
   color: rgb(231, 215, 215);
   text-align: center
 }
+.navbar {
+  background-color: rgb(49, 49, 49);
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 0;
+  padding-top: 0;
+  height: 5px
+}
 .post {
-  align-items: left;
+  text-align: left;
+  margin: 2vh;
+}
+.text {
+  background-color: black;
+  font-size: 20px;
+  color: white;
+  min-height: 50px;
+  height: 10vh;
 }
 a {
+  margin: 0 auto;
   color: #00B7FF;
 }
 
 .navbar {
-  padding-bottom: 40px;
-}
-	
-.delete-form button {
-  color: red;
+  height: 4vh;
+  min-height: 20px;
+  margin-bottom: 6vh;
 }
 	
 li {
   list-style: none;
 }
 
-.form-group {
+.form-group>form {
+  margin: 0;
+  padding: 0;
   display: inline-block;
+  text-align: right;
+}
+#new-post {
+  margin: 20vh;
+}
+
+label {
+  text-align: center;
 }
