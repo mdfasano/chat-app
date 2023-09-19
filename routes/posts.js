@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
-const passport = require('passport');
+const express = require('express');
+const router = express.Router();
+const postsController = require('../controllers/posts');
 
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/profiles/posts/new', postsController.new);
+router.get('/profiles/posts/index', postsController.index);
+router.post('/:id/posts/create', postsController.create);
+router.delete('/profiles/:id/delete', postsController.delete);
+
+
+module.exports = router;

@@ -1,8 +1,29 @@
+@import url("/css/bootstrap.css");
+
 body {
-  padding: 50px;
+  padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(0, 36, 34);
+  color: rgb(231, 215, 215)
 }
 
 a {
   color: #00B7FF;
+}
+
+.navbar {
+  padding-bottom: 40px;
+}
+
+.delete-form {
+  display: inline-block;
+  margin-right: 10px;
+}
+	
+.delete-form button {
+  color: red;
+}
+	
+li {
+  list-style: none;
 }

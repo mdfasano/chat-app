@@ -1,0 +1,23 @@
+<%- include('../../partials/header') %>
+
+<% posts.forEach(function(post) { %>
+
+    <div class="post">
+        <div class="text">
+            <form action="/profiles/<%= post._id %>/delete?_method=DELETE"
+                class="delete-form" method="POST">
+                <button type="submit">X</button>
+            </form> &nbsp;
+            <%= post.content %>
+        </div>
+        <br>
+        <form class="comment-form" action="/profiles/<%= post._id %>/comments/create" method="POST">
+            <input type="text" name="content">
+            <input type="submit" value="comment">
+        </form>
+    </div>
+    <br><br>
+
+    <% }); %>
+
+<%- include('../../partials/footer') %>

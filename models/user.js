@@ -10,7 +10,10 @@ const userSchema = new Schema({
     },
     email: String,
     avatar: String,
-    profile: Schema.Types.ObjectId// profile
+    profileId: {
+        type: Schema.Types.ObjectId, // profile
+        default: null
+    },
     }, {
     timestamps: true
 });

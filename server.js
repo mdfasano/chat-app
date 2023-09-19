@@ -5,13 +5,19 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
+var methodOverride = require('method-override');
+const User = require('./models/user');
+const Profile = require ('./models/profile.js');
 
 require('dotenv').config();
 require('./config/database');
-require('./config/passport')
+require('./config/passport');
+
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var profilesRouter = require('./routes/profiles');
+var postsRouter = require('./routes/posts');
+var commentsRouter = require('./routes/comments');
 
 var app = express();
 
@@ -24,6 +30,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
+app.use("/css", express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
+app.use("/js", express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+
 
 app.use(session({
   secret: process.env.SECRET,
@@ -34,13 +44,35 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function (req, res, next) {
+// adds user to locals
+// also adds profile to locals if it exists
+app.use(async function (req, res, next) {
   res.locals.user = req.user;
+  if (req.user && req.user.profileId !== null) {
+  const profile = await Profile.findById(req.user.profileId);
+  res.locals.profile = profile;
+  }
   next();
 });
 
+
+//deal with authorization
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
+// if no logged in user, show the log in screen
+app.use(function (req, res, next) {
+  if (req.user) {
+    next();
+  }
+  else {
+    res.render('index.ejs');
+  }
+});
+
+app.use('/profiles', profilesRouter);
+app.use('/', postsRouter);
+app.use('/', commentsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

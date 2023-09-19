@@ -9,7 +9,6 @@ const Schema = mongoose.Schema;
 const commentSchema = new Schema({
     // related user
     content: String     // text contents
-    // verify counter ('likes')
     }, {
     timestamps: true
 });
@@ -28,7 +27,7 @@ const profileSchema = new Schema({
 
         required: true
     },
-    ownerDisplayName: String,   // can be non-unique
+    username: String,   // can be non-unique
     posts: [postSchema]     // array of posts
     //
     }, {

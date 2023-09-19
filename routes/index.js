@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function (req, res) {
-  res.render('index', {title: 'hello'})
+  res.render('index', {title: 'Please Log In'})
 });
 
 // Google OAuth login route
@@ -24,7 +24,7 @@ router.get('/oauth2callback', passport.authenticate(
   'google',
   {
     // *********update these redirect links
-    successRedirect: '/users/profile',
+    successRedirect: '/profiles/home',
     failureRedirect: '/'
   }
 ));

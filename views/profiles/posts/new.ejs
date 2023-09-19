@@ -1,0 +1,12 @@
+<%- include('../../partials/header') %>
+<h1><%= title %></h1>
+<br>
+<h2>hello <%= profile.username %></h2>
+
+<form id="new-post" action="/<%= profile._id %>/posts/create" method="POST">
+    <label>Write a new Post</label>
+    <input type="text" name="content">
+    <input type="submit" value="submit">
+</form>
+
+<%- include('../../partials/footer') %>

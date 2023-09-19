@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+<h1><%= title %></h1>
+<br>
+<% if (user && user.profileId === null) { %>
+    <h2><a href="/profiles/new">Create your Profile</a></h2>
+<% } else { %>
+    <h2><nav><a href="/profiles/posts/index">View All Posts</a></nav></h2>
+<% } %> 
+
+<%- include('../partials/footer') %>
